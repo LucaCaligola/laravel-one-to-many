@@ -9,7 +9,7 @@
        Ecco i tuoi Progetti {{ Auth::user()->name }}
     </h1>
 </div>
-<div class="container">
+<div class="container-fluid">
     <table class="table table-striped table-hover">
                 <thead>
                     <tr>
