@@ -20,12 +20,13 @@
                         <th scope="col">Project Url</th>
                         <th scope="col">Languages</th>
                         <th scope="col">Actions</th>
+                        <th scope="col">Type</th>
                     </tr>
                 </thead>
                 <tbody>
                     @forelse ( $projects as $project )
                         <tr>
-                            <th scope="row">
+                            <th scope="">
                                 {{ $project->id }}
                             </th>
                             <td>
@@ -44,31 +45,39 @@
                             <td>
                                 {{ $project->languages }}
                             </td>
-                            
+                           
+                        
                                 <td>
-                                    <a href="{{ route('admin.projects.show', $project) }}" class="text-decoration-none">
-                                        <button class="btn btn-sm btn-primary">
-                                            View
-                                        </button>
-                                    </a>
-                                
-                                
-                              
-                                    <a href="{{ route('admin.projects.edit', $project) }}" class="text-decoration-none">
-                                        <button class="btn btn-sm btn-success">
-                                            Edit
-                                        </button>
-                                    </a>
-                               
+                                    <div class="d-flex justify-space-between">
+                                        <div>
+                                            <a href="{{ route('admin.projects.show', $project) }}" class="text-decoration-none">
+                                                <button class="btn btn-sm btn-primary m-1">
+                                                    View
+                                                </button>
+                                            </a>
+                                        </div>
+                                    
+                                        <div>
+                                            <a href="{{ route('admin.projects.edit', $project) }}" class="text-decoration-none">
+                                                <button class="btn btn-sm btn-success m-1">
+                                                    Edit
+                                                </button>
+                                            </a>
+                                        </div>
 
-                               
-                                    <form class="d-inline-block" action="{{ route('admin.projects.destroy', $project) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-sm btn-warning" type="submit">
-                                        Delete
-                                    </button>
-                                    </form>
+                                        <div>
+                                            <form class="d-inline-block" action="{{ route('admin.projects.destroy', $project) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="btn btn-sm btn-warning m-1" type="submit">
+                                                    Delete
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    {{ $project->type_id }}
                                 </td>
                         </tr>
                     @empty

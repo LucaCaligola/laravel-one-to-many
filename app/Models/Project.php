@@ -16,6 +16,16 @@ class Project extends Model
         'date',
         'picture',
         'project_url',
-        'languages'
+        'languages',
+        'type_id'
     ];
+
+    
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
+    public function category(){
+        return $this->belongsTo(Type::class);
+    }
 }

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Type;
 
 class TypeSeeder extends Seeder
 {
@@ -20,7 +21,7 @@ class TypeSeeder extends Seeder
 
         foreach ($types as $typeName) {
             $type = new Type();
-            $type->name = $TypeName;
+            $type->name = $typeName;
             $type->save();
 
         }

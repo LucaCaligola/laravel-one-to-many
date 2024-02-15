@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Project;
+use App\Models\Type;
+use App\Models\User;
 
 class ProjectSeeder extends Seeder
 {
@@ -12,15 +14,21 @@ class ProjectSeeder extends Seeder
      * Run the database seeds.
      */
     public function run(): void
+    
     {
-       $projects = array (
+        $typeIds = Type::all()->pluck('id');
+        $userIds = User::all()->pluck('id');
+
+
+        $projects = array (
             array(
                 'title'=> 'Boolzapp',
                 'description'=> 'Boolzapp è una replica della famossissima Whatsapp',
                 'date'=> '2023-12-7',
                 'picture'=> asset('img/boolzapp.png'),
                 'project_url'=> 'https://github.com/LucaCaligola/vue-boolzapp',
-                'languages'=> 'Javascript, HTML, CSS'
+                'languages'=> 'Javascript, HTML, CSS',
+                'type_id' => rand(1, count($typeIds) - 1 )
             ),
 
             array(
@@ -29,7 +37,8 @@ class ProjectSeeder extends Seeder
                 'date'=> '2023-10-26',
                 'picture'=> asset('img/spotify.png'),
                 'project_url'=> 'https://github.com/LucaCaligola/vue-boolzapp',
-                'languages'=> 'HTML, CSS'
+                'languages'=> 'HTML, CSS',
+                'type_id' => rand(1, count($typeIds) - 1 )
             ),
             array(
                 'title'=> 'Dashboard',
@@ -37,7 +46,8 @@ class ProjectSeeder extends Seeder
                 'date'=> '2023-12-17',
                 'picture'=> asset('img/dashboard.png'),
                 'project_url'=> 'https://github.com/LucaCaligola/html-css-bootstrap-dashboard',
-                'languages'=> 'HTML, CSS'
+                'languages'=> 'HTML, CSS',
+                'type_id' => rand(1, count($typeIds) - 1 )
             )
             );
 
@@ -50,6 +60,7 @@ class ProjectSeeder extends Seeder
                 $newProject->picture = $project['picture'];
                 $newProject->project_url = $project['project_url'];
                 $newProject->languages = $project['languages'];
+                $newProject->type_id = $project['type_id'];
                 $newProject->save();
 
                 
