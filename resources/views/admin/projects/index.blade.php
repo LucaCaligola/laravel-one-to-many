@@ -77,7 +77,8 @@
                                     </div>
                                 </td>
                                 <td>
-                                    {{ $project->type_id }}
+                                  
+                                    {{ $project->type->name }}
                                 </td>
                         </tr>
                     @empty

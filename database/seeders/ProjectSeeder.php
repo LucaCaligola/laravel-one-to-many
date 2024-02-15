@@ -17,7 +17,6 @@ class ProjectSeeder extends Seeder
     
     {
         $typeIds = Type::all()->pluck('id');
-        $userIds = User::all()->pluck('id');
 
 
         $projects = array (
@@ -28,7 +27,7 @@ class ProjectSeeder extends Seeder
                 'picture'=> asset('img/boolzapp.png'),
                 'project_url'=> 'https://github.com/LucaCaligola/vue-boolzapp',
                 'languages'=> 'Javascript, HTML, CSS',
-                'type_id' => rand(1, count($typeIds) - 1 )
+                'type_id' => rand(0, count($typeIds))
             ),
 
             array(
@@ -38,7 +37,7 @@ class ProjectSeeder extends Seeder
                 'picture'=> asset('img/spotify.png'),
                 'project_url'=> 'https://github.com/LucaCaligola/vue-boolzapp',
                 'languages'=> 'HTML, CSS',
-                'type_id' => rand(1, count($typeIds) - 1 )
+                'type_id' => rand(0, count($typeIds))
             ),
             array(
                 'title'=> 'Dashboard',
@@ -47,7 +46,7 @@ class ProjectSeeder extends Seeder
                 'picture'=> asset('img/dashboard.png'),
                 'project_url'=> 'https://github.com/LucaCaligola/html-css-bootstrap-dashboard',
                 'languages'=> 'HTML, CSS',
-                'type_id' => rand(1, count($typeIds) - 1 )
+                'type_id' => rand(0, count($typeIds))
             )
             );
 
